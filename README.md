@@ -19,7 +19,7 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 ![](gif_pt2.gif)
 
 ### Notes
-Describe any challenges encountered while building the app.
+XCode kept on deleting the links between UI items from the storyboard and the controller. I also kept having trouble getting the display for the grid to be correct. I'm not sure what the problem was since I programically set the grid layout using the collectionViewLayout.
 
 ---
 
