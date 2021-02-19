@@ -55,13 +55,27 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.MovieDescriptionLabel.text = movie["overview"] as? String ?? ""
         
         
-        // image of restaurant
+        // image of movie
         if let imageUrlString = movie["poster_path"] as? String {
             let imageUrl = URL(string: "https://image.tmdb.org/t/p/w500\(imageUrlString)")
             cell.MovieImageView.af.setImage(withURL: imageUrl!)
         }
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let movie = moviesArray[indexPath.row]
+        
+        let detailsViewController = segue.destination as! MovieDetailsViewController
+        
+        detailsViewController.movie = movie
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
 
 
